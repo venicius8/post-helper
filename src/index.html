@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Helper</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <h1 class="">Editor de texto - Post Helper</h1>
+
+    <form id="editor" class="container bg-dark text-light p-4">
+      <h2 id="currentDay">Dia - de 100 #100DaysOfCode</h2>
+
+      <div>
+        <h2 class="mt-5">Cabeçalho</h2>
+        <select id="headerOptions">
+          <option value="comment">Comentário</option>
+          <option value="phrase">Frase</option>
+        </select>
+
+        <input type="text" id="headerInput" minlength="8" />
+      </div>
+
+      <div>
+        <h2 class="mt-5">Tarefas realizadas</h2>
+        <h2 id="createTask" class="btn btn-success">Criar tarefa</h2>
+        <br />
+        <div id="tasks">
+          <input class="taskName" placeholder="Qual foi a tarefa" />
+          <input
+            class="taskTime"
+            type="number"
+            step="0.5"
+            minlength="0.5"
+            placeholder="Duração (em horas)"
+          />
+        </div>
+      </div>
+
+      <div>
+        <h2 class="mt-5">Informação extra</h2>
+        <select id="extraInfoOptions">
+          <option value="blank">Em branco</option>
+          <option value="comment">Comentário</option>
+          <option value="link">Link</option>
+        </select>
+      </div>
+    </form>
+
+    <h2 id="preview" class="bg-secondary container"></p>
+
+    <script src="script.js"></script>
+  </body>
+</html>
