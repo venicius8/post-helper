@@ -7,7 +7,7 @@ Dia 9 de 100 #100DaysOfCode
 
 Além do curso, foquei totalmente no meu projeto🔥
 
-📚1,5h - Seguindo o curso do #freeCodeCamp
+📚 1,5h - Seguindo o curso do #freeCodeCamp
 
 🧠 1h - Codando enquanto aprendendo Bootstrap
 
@@ -16,4 +16,4 @@ Além do curso, foquei totalmente no meu projeto🔥
 O projeto de hoje: https://github.com/venicius8/post-helper
 ```
 
-Brevemente ele estará pronto :) 
+Brevemente ele estará pronto :)

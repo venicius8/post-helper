@@ -2,13 +2,12 @@
 
 const editor = document.getElementById("editor");
 const preview = document.getElementById("preview");
+const currentDayDisplay = document.getElementById("currentDay");
 
 const headerOptions = document.getElementById("headerOptions");
 const headerInputEl = document.getElementById("headerInput");
 
 const createTask = document.getElementById("createTask");
-
-let taskNameList = "";
 
 // Create task button
 
@@ -32,6 +31,7 @@ createTask.addEventListener("click", () => {
 const dayOne = new Date("2025-08-04");
 const today = new Date();
 const currentDay = Math.floor((today - dayOne) / 1000 / 60 / 60 / 24);
+currentDayDisplay.innerText = `Dia ${currentDay} de 100 #100DaysOfCode`;
 
 // Listen to editor input
 
@@ -44,15 +44,15 @@ document.getElementById("editor").addEventListener("input", () => {
     headerInput = `- "${headerInput}"`;
   }
 
-  taskNameList = "";
-  for (const taskName of tasksNameEl) {
-    taskNameList += taskName.value + "\n\n";
+  let taskList = "";
+  for (let i = 0; i < tasksNameEl.length; i++) {
+    taskList += `${tasksTimeEl[i].value}h - ${tasksNameEl[i].value}\n\n`;
   }
 
   preview.innerText = `Dia ${currentDay} de 100 #100DaysOfCode
 
     ${headerInput}
 
-    ${taskNameList}
+    ${taskList}
   `;
 });
