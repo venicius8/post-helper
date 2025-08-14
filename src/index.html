@@ -10,6 +10,7 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1 class="">Editor de texto - Post Helper</h1>
@@ -31,7 +32,16 @@
         <h2 class="mt-5">Tarefas realizadas</h2>
         <h2 id="createTask" class="btn btn-success">Criar tarefa</h2>
         <br />
+
         <div id="tasks">
+          <emoji-picker class="emojis"></emoji-picker>
+          <input
+            class="taskEmoji"
+            placeholder="Escolha um emoji"
+            maxlength="2"
+            onfocus="emoji()"
+            onblur="emoji()"
+          />
           <input class="taskName" placeholder="Qual foi a tarefa" />
           <input
             class="taskTime"
@@ -53,8 +63,12 @@
       </div>
     </form>
 
-    <h2 id="preview" class="bg-secondary container"></p>
+    <h2 id="preview" class="bg-secondary container"></h2>
 
     <script src="script.js"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"
+    ></script>
   </body>
 </html>
