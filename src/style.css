@@ -9,3 +9,14 @@
   opacity: 1;
   pointer-events: auto;
 }
+
+.preview {
+  border: 1px solid gray;
+  background-color: rgb(214, 214, 214);
+  border-radius: 10px;
+}
+
+.taskEmoji,
+.taskTime {
+  width: 80px;
+}

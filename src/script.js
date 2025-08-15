@@ -22,18 +22,25 @@ createTask.addEventListener("click", () => {
   newTaskTime.type = "number";
   newTaskTime.step = "0.5";
   newTaskTime.min = "0.5";
-  newTaskTime.placeholder = "Duração (em horas)";
+  newTaskTime.placeholder = "Horas";
 
   const newTaskEmoji = document.createElement("input");
   newTaskEmoji.className = "taskEmoji";
   newTaskEmoji.maxLength = "2";
-  newTaskEmoji.placeholder = "Escolha um emoji";
+  newTaskEmoji.placeholder = "Emoji";
   newTaskEmoji.onfocus = "emoji()";
   newTaskEmoji.onblur = "emoji()";
 
   document
     .getElementById("tasks")
-    .append(newTaskEmoji, newTaskName, newTaskTime);
+    .append(
+      newTaskEmoji,
+      document.createTextNode(" "),
+      newTaskName,
+      document.createTextNode(" "),
+      newTaskTime,
+      document.createElement("br")
+    );
 });
 
 // Converting days
@@ -41,7 +48,7 @@ createTask.addEventListener("click", () => {
 const dayOne = new Date("2025-08-04");
 const today = new Date();
 const currentDay = Math.floor((today - dayOne) / 1000 / 60 / 60 / 24);
-currentDayDisplay.innerText = `Dia ${currentDay} de 100 #100DaysOfCode`;
+currentDayDisplay.innerText = `~ Dia ${currentDay} de 100`;
 
 // Listen to editor input
 
@@ -57,15 +64,12 @@ document.getElementById("editor").addEventListener("input", () => {
 
   taskList = "";
   for (let i = 0; i < tasksNameEl.length; i++) {
-    taskList += `${tasksEmojiEl[i].value} ${tasksTimeEl[i].value}h - ${tasksNameEl[i].value}\n\n`;
+    taskList += `\n\n${tasksEmojiEl[i].value} ${tasksTimeEl[i].value}h - ${tasksNameEl[i].value}`;
   }
 
   preview.innerText = `Dia ${currentDay} de 100 #100DaysOfCode
 
-    ${headerInput}
-
-    ${taskList}
-  `;
+    ${headerInput}${taskList}`;
 });
 
 document
