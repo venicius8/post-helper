@@ -13,6 +13,9 @@ let taskList;
 // Create task button
 
 createTask.addEventListener("click", () => {
+  const newTaskDiv = document.createElement("div");
+  newTaskDiv.style = "margin-top: 10px";
+
   const newTaskName = document.createElement("input");
   newTaskName.className = "taskName";
   newTaskName.placeholder = "Qual foi a tarefa";
@@ -31,16 +34,26 @@ createTask.addEventListener("click", () => {
   newTaskEmoji.onfocus = "emoji()";
   newTaskEmoji.onblur = "emoji()";
 
-  document
-    .getElementById("tasks")
-    .append(
-      newTaskEmoji,
-      document.createTextNode(" "),
-      newTaskName,
-      document.createTextNode(" "),
-      newTaskTime,
-      document.createElement("br")
-    );
+  const newTaskDeleter = document.createElement("button");
+  newTaskDeleter.className = "btn btn-danger";
+  newTaskDeleter.type = "button";
+  newTaskDeleter.onclick = function () {
+    this.parentElement.remove();
+  };
+  newTaskDeleter.innerHTML = "&#128465;";
+
+  newTaskDiv.append(
+    newTaskEmoji,
+    document.createTextNode(" "),
+    newTaskName,
+    document.createTextNode(" "),
+    newTaskTime,
+    document.createTextNode(" "),
+    newTaskDeleter,
+    document.createElement("br")
+  );
+
+  document.getElementById("tasks").append(newTaskDiv);
 });
 
 // Converting days
