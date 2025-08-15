@@ -1,12 +1,11 @@
-// Imports
+// Elements reference
 
 const editor = document.getElementById("editor");
 const preview = document.getElementById("preview");
 const currentDayDisplay = document.getElementById("currentDay");
-
+const charactersLimit = document.getElementById("charactersLimit");
 const headerOptions = document.getElementById("headerOptions");
 const headerInputEl = document.getElementById("headerInput");
-
 const createTask = document.getElementById("createTask");
 let taskList;
 
@@ -80,11 +79,14 @@ document.getElementById("editor").addEventListener("input", () => {
     taskList += `\n\n${tasksEmojiEl[i].value} ${tasksTimeEl[i].value}h - ${tasksNameEl[i].value}`;
   }
 
-  preview.innerText = `Dia ${currentDay} de 100 #100DaysOfCode
+  preview.innerText = `Dia ${currentDay} de 100 #100DaysOfCode\n\n${headerInput}${taskList}`;
 
-    ${headerInput}${taskList}`;
+  charactersLimit.innerText = `${preview.innerText.length} / 280`;
 });
 
+// Add emoji to input later
+
+/*
 document
   .querySelector("emoji-picker")
   .addEventListener("emoji-click", (event) => {
@@ -96,3 +98,4 @@ function emoji() {
     document.querySelector("emoji-picker").classList.toggle("emojis-active");
   }, 100);
 }
+*/
