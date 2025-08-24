@@ -41,7 +41,7 @@
             <input
               class="taskEmoji"
               placeholder="Emoji"
-              maxlength="2"
+              maxlength="3"
               onfocus="emoji()"
               onblur="emoji()"
             />
@@ -68,10 +68,11 @@
       <div>
         <h2 class="mt-5">Informação extra</h2>
         <select id="extraInfoOptions">
-          <option value="blank">Em branco</option>
           <option value="comment">Comentário</option>
-          <option value="link">Link</option>
+          <option value="blank">Em branco</option>
         </select>
+        <br />
+        <textarea id="extraInfoInput"></textarea>
       </div>
     </form>
 

@@ -7,6 +7,9 @@ const charactersLimit = document.getElementById("charactersLimit");
 const headerOptions = document.getElementById("headerOptions");
 const headerInputEl = document.getElementById("headerInput");
 const createTask = document.getElementById("createTask");
+const extraInfoOptionsEl = document.getElementById("extraInfoOptions");
+const extraInfoInput = document.getElementById("extraInfoInput");
+
 let taskList;
 
 // Create task button
@@ -28,7 +31,7 @@ createTask.addEventListener("click", () => {
 
   const newTaskEmoji = document.createElement("input");
   newTaskEmoji.className = "taskEmoji";
-  newTaskEmoji.maxLength = "2";
+  newTaskEmoji.maxLength = "3";
   newTaskEmoji.placeholder = "Emoji";
   newTaskEmoji.onfocus = "emoji()";
   newTaskEmoji.onblur = "emoji()";
@@ -74,12 +77,24 @@ document.getElementById("editor").addEventListener("input", () => {
     headerInput = `- "${headerInput}"`;
   }
 
+  // extraInfoOptions listener
+
+  let extraInfoOptions = extraInfoOptionsEl.value;
+  if (extraInfoOptions === "blank") {
+    extraInfoInput.style.display = "none";
+    extraInfoInput.value = "";
+  } else {
+    extraInfoInput.style.display = "block";
+  }
+
   taskList = "";
   for (let i = 0; i < tasksNameEl.length; i++) {
     taskList += `\n\n${tasksEmojiEl[i].value} ${tasksTimeEl[i].value}h - ${tasksNameEl[i].value}`;
   }
 
-  preview.innerText = `Dia ${currentDay} de 100 #100DaysOfCode\n\n${headerInput}${taskList}`;
+  preview.innerText = `Dia ${currentDay} de 100 #100DaysOfCode\n\n${headerInput}${taskList}${
+    "\n\n" + extraInfoInput.value
+  }`;
 
   charactersLimit.innerText = `${preview.innerText.length} / 280`;
 });

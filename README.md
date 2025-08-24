@@ -15,5 +15,3 @@ Além do curso, foquei totalmente no meu projeto🔥
 
 O projeto de hoje: https://github.com/venicius8/post-helper
 ```
-
-Brevemente ele estará pronto :)
