@@ -99,6 +99,15 @@ document.getElementById("editor").addEventListener("input", () => {
   charactersLimit.innerText = `${preview.innerText.length} / 280`;
 });
 
+window.addEventListener("beforeunload", (e) => {
+  if (taskList != "") {
+    const message =
+      "Tem certeza que deseja sair? Há alterações não salvas que você poderá perder.";
+    e.returnValue = message;
+    return message;
+  }
+});
+
 // Add emoji to input later
 
 /*
