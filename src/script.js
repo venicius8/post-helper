@@ -18,42 +18,13 @@ createTask.addEventListener("click", () => {
   const newTaskDiv = document.createElement("div");
   newTaskDiv.style = "margin-top: 10px";
 
-  const newTaskName = document.createElement("input");
-  newTaskName.className = "taskName";
-  newTaskName.placeholder = "Qual foi a tarefa";
-
-  const newTaskTime = document.createElement("input");
-  newTaskTime.className = "taskTime";
-  newTaskTime.type = "number";
-  newTaskTime.step = "0.5";
-  newTaskTime.min = "0.5";
-  newTaskTime.placeholder = "Horas";
-
-  const newTaskEmoji = document.createElement("input");
-  newTaskEmoji.className = "taskEmoji";
-  newTaskEmoji.maxLength = "3";
-  newTaskEmoji.placeholder = "Emoji";
-  newTaskEmoji.onfocus = "emoji()";
-  newTaskEmoji.onblur = "emoji()";
-
-  const newTaskDeleter = document.createElement("button");
-  newTaskDeleter.className = "btn btn-danger";
-  newTaskDeleter.type = "button";
-  newTaskDeleter.onclick = function () {
-    this.parentElement.remove();
-  };
-  newTaskDeleter.innerHTML = "&#128465;";
-
-  newTaskDiv.append(
-    newTaskEmoji,
-    document.createTextNode(" "),
-    newTaskName,
-    document.createTextNode(" "),
-    newTaskTime,
-    document.createTextNode(" "),
-    newTaskDeleter,
-    document.createElement("br")
-  );
+  newTaskDiv.innerHTML = `
+    <input class="taskEmoji" type="text" placeholder="Emoji" maxlength="3" />
+    <input class="taskName" placeholder="Qual foi a tarefa" />
+    <input class="taskTime" type="number" step="0.5" min="0.5" placeholder="Horas" />
+    <button class="btn btn-danger" type="button" onclick="this.parentElement.remove()">&#128465;</button>
+    <br />
+  `;
 
   document.getElementById("tasks").append(newTaskDiv);
 });
