@@ -70,6 +70,8 @@ document.getElementById("editor").addEventListener("input", () => {
   charactersLimit.innerText = `${preview.innerText.length} / 280`;
 });
 
+// Loss prevention
+
 window.addEventListener("beforeunload", (e) => {
   if (taskList != "") {
     const message =
@@ -78,6 +80,15 @@ window.addEventListener("beforeunload", (e) => {
     return message;
   }
 });
+
+// Copy text
+
+function copyText() {
+  navigator.clipboard
+    .writeText(preview.innerText)
+    .then(() => alert("Texto copiado!"))
+    .catch((err) => console.log("Houve um erro ao copiar o texto."));
+}
 
 // Add emoji to input later
 
