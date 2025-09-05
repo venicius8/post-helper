@@ -24,3 +24,22 @@ body {
 .taskTime {
   width: 80px;
 }
+
+.settings {
+  display: none;
+  background-color: rgb(34, 34, 34);
+  height: 60dvh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  padding: 3%;
+  position: fixed;
+  border-radius: 20px;
+  border: 1px solid rgb(71, 71, 71);
+  box-shadow: 0 0 15px black;
+  max-width: 500px;
+}
+
+.settings-on {
+  display: block;
+}

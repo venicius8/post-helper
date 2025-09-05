@@ -16,7 +16,19 @@
     <h1 class="text-center">Editor de texto - Post Helper</h1>
 
     <form id="editor" class="border mb-5 border-3 p-4">
-      <h2 id="currentDay">~ Dia - de 100</h2>
+      <button type="button" onclick="showSettings()">Configurações</button>
+
+      <div class="settings">
+        <label for="startDay">Seu Dia 1 começou em: </label>
+        <input type="date" id="startDay" />
+        <br /><br />
+        <label for="challengeDuration">Duração: </label>
+        <input
+          type="number"
+          id="challengeDuration"
+          placeholder="Desafio de quanto dias"
+        />
+      </div>
 
       <div>
         <h2 class="mt-5">Cabeçalho</h2>
@@ -35,34 +47,7 @@
         </button>
         <br />
 
-        <div id="tasks">
-          <div>
-            <emoji-picker class="emojis"></emoji-picker>
-            <input
-              class="taskEmoji"
-              placeholder="Emoji"
-              maxlength="3"
-              onfocus="emoji()"
-              onblur="emoji()"
-            />
-            <input class="taskName" placeholder="Qual foi a tarefa" />
-            <input
-              class="taskTime"
-              type="number"
-              step="0.5"
-              min="0.5"
-              placeholder="Horas"
-            />
-            <button
-              type="button"
-              class="btn btn-danger"
-              onclick="this.parentElement.remove()"
-            >
-              🗑️
-            </button>
-            <br />
-          </div>
-        </div>
+        <div id="tasks"></div>
       </div>
 
       <div>

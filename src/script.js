@@ -10,7 +10,7 @@ const createTask = document.getElementById("createTask");
 const extraInfoOptionsEl = document.getElementById("extraInfoOptions");
 const extraInfoInput = document.getElementById("extraInfoInput");
 
-let taskList;
+let taskList = "";
 
 // Create task button
 
@@ -31,10 +31,19 @@ createTask.addEventListener("click", () => {
 
 // Converting days
 
-const dayOne = new Date("2025-08-04");
-const today = new Date();
-const currentDay = Math.floor((today - dayOne) / 1000 / 60 / 60 / 24);
-currentDayDisplay.innerText = `~ Dia ${currentDay} de 100`;
+let startDate = null;
+let challengeDuration = 100;
+
+function calculateCurrentDay() {
+  if (!startDate) return 0;
+
+  const today = new Date();
+  const start = new Date(startDate);
+  const timeDiff = today - start;
+  const daysDiff = Math.floor((today - dayOne) / 1000 / 60 / 60 / 24);
+
+  return daysDiff + 1;
+}
 
 // Listen to editor input
 
@@ -73,7 +82,8 @@ document.getElementById("editor").addEventListener("input", () => {
 // Loss prevention
 
 window.addEventListener("beforeunload", (e) => {
-  if (taskList != "") {
+  if (taskList.length > 5) {
+    console.log(taskList);
     const message =
       "Tem certeza que deseja sair? Há alterações não salvas que você poderá perder.";
     e.returnValue = message;
@@ -88,6 +98,12 @@ function copyText() {
     .writeText(preview.innerText)
     .then(() => alert("Texto copiado!"))
     .catch((err) => console.log("Houve um erro ao copiar o texto."));
+}
+
+// Settings
+
+function showSettings() {
+  document.querySelector(".settings").classList.toggle("settings-on");
 }
 
 // Add emoji to input later
