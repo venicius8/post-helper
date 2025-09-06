@@ -9,8 +9,19 @@ const headerInputEl = document.getElementById("headerInput");
 const createTask = document.getElementById("createTask");
 const extraInfoOptionsEl = document.getElementById("extraInfoOptions");
 const extraInfoInput = document.getElementById("extraInfoInput");
+const titleEl = document.getElementById("title");
 
+let title = "";
 let taskList = "";
+
+// Load from localStorage
+
+function loadSettings() {
+  titleEl.value = localStorage.getItem("title") || "";
+  startDate = localStorage.getItem("startDate") || null;
+  challengeDuration = localStorage.getItem("challengeDuration") || 100;
+  updatePreview();
+}
 
 // Create task button
 
@@ -40,14 +51,14 @@ function calculateCurrentDay() {
   const today = new Date();
   const start = new Date(startDate);
   const timeDiff = today - start;
-  const daysDiff = Math.floor((today - dayOne) / 1000 / 60 / 60 / 24);
+  const daysDiff = Math.floor(timeDiff / 1000 / 60 / 60 / 24);
 
   return daysDiff + 1;
 }
 
 // Listen to editor input
 
-document.getElementById("editor").addEventListener("input", () => {
+function updatePreview() {
   const tasksNameEl = document.querySelectorAll(".taskName");
   const tasksTimeEl = document.querySelectorAll(".taskTime");
   const tasksEmojiEl = document.querySelectorAll(".taskEmoji");
@@ -71,13 +82,16 @@ document.getElementById("editor").addEventListener("input", () => {
   for (let i = 0; i < tasksNameEl.length; i++) {
     taskList += `\n\n${tasksEmojiEl[i].value} ${tasksTimeEl[i].value}h - ${tasksNameEl[i].value}`;
   }
+  parseTitle();
 
-  preview.innerText = `Dia ${currentDay} de 100 #100DaysOfCode\n\n${headerInput}${taskList}${
+  preview.innerText = `${title}\n\n${headerInput}${taskList}${
     "\n\n" + extraInfoInput.value
   }`;
 
-  charactersLimit.innerText = `${preview.innerText.length} / 280`;
-});
+  charactersLimit.innerText = `${preview.innerText.length} caracteres`;
+}
+
+document.getElementById("editor").addEventListener("input", updatePreview);
 
 // Loss prevention
 
@@ -108,6 +122,26 @@ function showSettings() {
     .querySelector(".overlaySettings")
     .classList.toggle("overlaySettings-on");
 }
+
+function saveSettings() {
+  startDate = document.getElementById("startDate").value;
+  challengeDuration = document.getElementById("challengeDuration").value;
+  parseTitle();
+
+  localStorage.setItem("title", titleEl.value);
+  localStorage.setItem("startDate", startDate);
+  localStorage.setItem("challengeDuration", challengeDuration);
+
+  updatePreview();
+}
+
+function parseTitle() {
+  title = titleEl.value
+    .replace("/d", calculateCurrentDay())
+    .replace("/t", challengeDuration);
+}
+
+loadSettings();
 
 // Add emoji to input later
 

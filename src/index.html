@@ -19,8 +19,8 @@
       <button type="button" onclick="showSettings()">Configurações</button>
 
       <div class="settings">
-        <label for="startDay">Seu Dia 1 começou em: </label>
-        <input type="date" id="startDay" />
+        <label for="startDate">Seu Dia 1 começou em: </label>
+        <input type="date" id="startDate" />
         <br /><br />
         <label for="challengeDuration">Duração: </label>
         <input
@@ -28,6 +28,24 @@
           id="challengeDuration"
           placeholder="Desafio de quanto dias"
         />
+        <br />
+        <label for="title">Título: </label>
+        <input type="text" id="title" placeholder="Dia /d de /t" />
+        <br />
+        <button
+          type="button"
+          class="btn btn-success mt-5"
+          onclick="saveSettings()"
+        >
+          Salvar
+        </button>
+        <div class="mt-5">
+          <p>
+            Digite /d para o dia atual, e /t para a duração do desafio. Exemplo:
+          </p>
+          <p>Hoje é dia /d de /t</p>
+          <p>Hoje é dia 15 de 100</p>
+        </div>
       </div>
       <div onclick="showSettings()" class="overlaySettings"></div>
 
@@ -62,7 +80,7 @@
       </div>
     </form>
 
-    <p id="charactersLimit">- / 280</p>
+    <p id="charactersLimit"></p>
     <h2 id="preview" class="preview text-dark"></h2>
     <button class="btn btn-success" onclick="copyText()">Copiar texto</button>
 
