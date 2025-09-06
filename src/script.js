@@ -104,6 +104,9 @@ function copyText() {
 
 function showSettings() {
   document.querySelector(".settings").classList.toggle("settings-on");
+  document
+    .querySelector(".overlaySettings")
+    .classList.toggle("overlaySettings-on");
 }
 
 // Add emoji to input later

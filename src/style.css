@@ -38,8 +38,24 @@ body {
   border: 1px solid rgb(71, 71, 71);
   box-shadow: 0 0 15px black;
   max-width: 500px;
+  z-index: 100;
 }
 
 .settings-on {
+  display: block;
+}
+
+.overlaySettings-on {
+  display: none;
+}
+
+.overlaySettings-on {
+  position: fixed;
+  z-index: 90;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  backdrop-filter: blur(5px);
   display: block;
 }
