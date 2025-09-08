@@ -1,6 +1,24 @@
 # Post Helper
 
-ELe serve para me auxiliar nas minhas postagens do X (Twitter), como nesse exemplo abaixo:
+## Descrição
+
+Este é um aplicativo web para auxiliar nas postagens onde se faz um desafio, por exemplo:
+
+```text
+[título ajustável automaticamente ->] Dia /d de /t #100DaysOfCode
+
+[Um comentário ou frase]
+
+[emoji] [hora] - [tarefa]
+
+[emoji] [hora] - [tarefa]
+
+[emoji] [hora] - [tarefa]
+
+[comentário opcional]
+```
+
+- Se transforma em:
 
 ```text
 Dia 9 de 100 #100DaysOfCode
