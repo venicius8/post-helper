@@ -33,3 +33,16 @@ Além do curso, foquei totalmente no meu projeto🔥
 
 O projeto de hoje: https://github.com/venicius8/post-helper
 ```
+
+## Características
+
+- Geração automática de títulos com contagem progressiva (/d) e total (/t)
+
+- Inserção inteligente de emojis para categorizar atividades
+
+- Formatação de tempo para registro de horas dedicadas
+
+- Estrutura modular que permite adicionar múltiplas tarefas
+
+- Seção opcional para comentários finais ou links relevantes
+  
