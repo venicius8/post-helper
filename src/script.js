@@ -51,7 +51,8 @@ function calculateCurrentDay() {
   const today = new Date();
   const start = new Date(startDate);
   const timeDiff = today - start;
-  const daysDiff = Math.floor(timeDiff / 1000 / 60 / 60 / 24);
+  const localTimeZone = new Date().getHours() - new Date().getUTCHours();
+  const daysDiff = Math.floor((timeDiff + localTimeZone) / 1000 / 60 / 60 / 24);
 
   return daysDiff + 1;
 }
